@@ -1,0 +1,1222 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="color-scheme" content="dark light" />
+
+  <!-- ═══ SEO / Open Graph ═══ -->
+  <title>Origin Octave — Tech 4 Humanity Research Organism · 8×8 Governed IP Surface</title>
+  <meta name="description" content="A staged research organism: 8 governed research programmes, 64 measurable capability lanes, progressing from exploration to deployment. Defensible R&D — not thought leadership." />
+  <meta name="keywords" content="AI research, human-AI performance, child protection, cultural AI sovereignty, neural signal, biological intelligence, R&D, Tech4Humanity, Troy" />
+  <meta name="author" content="Tech 4 Humanity" />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#060810" />
+  <link rel="canonical" href="https://tech4humanity.com.au/research" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Origin Octave — Tech 4 Humanity Research Organism" />
+  <meta property="og:description" content="8 governed research programmes. 64 measurable capability lanes. Staged R&D that proves discipline, not vibes." />
+  <meta property="og:url" content="https://tech4humanity.com.au/research" />
+  <meta property="og:image" content="https://tech4humanity.com.au/assets/img/og-research.jpg" />
+  <meta property="og:site_name" content="Tech 4 Humanity" />
+
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Origin Octave — Tech 4 Humanity Research Organism" />
+  <meta name="twitter:description" content="8 governed research programmes. 64 measurable capability lanes." />
+  <meta name="twitter:image" content="https://tech4humanity.com.au/assets/img/og-research.jpg" />
+
+  <!-- Schema.org structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ResearchOrganization",
+    "name": "Tech 4 Humanity",
+    "url": "https://tech4humanity.com.au",
+    "description": "A staged research organism: 8 governed research programmes, 64 measurable capability lanes.",
+    "foundingLocation": { "@type": "Place", "name": "Sydney, Australia" },
+    "sameAs": ["https://tech4humanity.com.au"],
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "email": "contact@tech4humanity.com.au",
+      "contactType": "Research & Partnerships"
+    }
+  }
+  </script>
+
+  <!-- Fonts: editorial serif display + mono utility -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ════════════════════════════════════════
+       DESIGN SYSTEM
+    ════════════════════════════════════════ */
+    :root {
+      --bg:          #060810;
+      --bg2:         #0d1020;
+      --surface:     rgba(255,255,255,.055);
+      --surface2:    rgba(255,255,255,.085);
+      --border:      rgba(255,255,255,.10);
+      --border2:     rgba(255,255,255,.18);
+      --text:        rgba(255,255,255,.93);
+      --muted:       rgba(255,255,255,.52);
+      --dim:         rgba(255,255,255,.32);
+
+      /* Accent palette — marine + amber + jade */
+      --c-blue:      #3b82f6;
+      --c-amber:     #f59e0b;
+      --c-jade:      #34d399;
+      --c-rose:      #f87171;
+      --c-violet:    #a78bfa;
+
+      /* Status */
+      --s-good:      #34d399;
+      --s-warn:      #f59e0b;
+      --s-bad:       #94a3b8;
+
+      /* Layout */
+      --max:         1200px;
+      --r:           20px;
+      --r2:          28px;
+      --shadow:      0 20px 60px rgba(0,0,0,.55);
+      --shadow2:     0 4px 20px rgba(0,0,0,.35);
+
+      /* Type */
+      --serif:       'DM Serif Display', Georgia, serif;
+      --sans:        'Outfit', system-ui, sans-serif;
+      --mono:        'DM Mono', ui-monospace, monospace;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--sans);
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* animated gradient noise bg */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      background:
+        radial-gradient(ellipse 1400px 900px at 15% -10%, rgba(59,130,246,.14) 0%, transparent 60%),
+        radial-gradient(ellipse 900px 700px at 95% 5%, rgba(167,139,250,.12) 0%, transparent 55%),
+        radial-gradient(ellipse 1100px 600px at 55% 105%, rgba(52,211,153,.10) 0%, transparent 60%),
+        radial-gradient(ellipse 600px 400px at 85% 50%, rgba(245,158,11,.07) 0%, transparent 50%);
+    }
+
+    .wrap { position: relative; z-index: 1; max-width: var(--max); margin: 0 auto; padding: 0 20px 80px; }
+
+    /* ── Header ── */
+    header {
+      position: sticky; top: 0; z-index: 100;
+      backdrop-filter: blur(20px) saturate(1.4);
+      -webkit-backdrop-filter: blur(20px) saturate(1.4);
+      border-bottom: 1px solid rgba(255,255,255,.07);
+      background: rgba(6,8,16,.72);
+    }
+    .bar {
+      max-width: var(--max); margin: 0 auto; padding: 0 20px;
+      height: 58px; display: flex; align-items: center; justify-content: space-between; gap: 16px;
+    }
+    .brand {
+      display: flex; align-items: center; gap: 10px;
+      text-decoration: none; color: var(--text); flex-shrink: 0;
+    }
+    .mark {
+      width: 32px; height: 32px; border-radius: 10px; flex-shrink: 0;
+      background: linear-gradient(135deg, #3b82f6, #a78bfa, #34d399);
+      position: relative;
+    }
+    .mark::after {
+      content: '';
+      position: absolute; inset: 3px;
+      border-radius: 7px;
+      background: var(--bg);
+      opacity: .6;
+    }
+    .brand-name { font-weight: 600; font-size: 14px; letter-spacing: .2px; }
+    .brand-sub { font-family: var(--mono); font-size: 10.5px; color: var(--muted); }
+    nav { display: flex; gap: 2px; flex-wrap: nowrap; }
+    nav a {
+      text-decoration: none; font-size: 13px; color: var(--muted);
+      padding: 7px 10px; border-radius: 10px;
+      transition: color .15s, background .15s;
+    }
+    nav a:hover { color: var(--text); background: var(--surface); }
+    .nav-cta {
+      font-family: var(--mono); font-size: 11.5px; color: var(--text) !important;
+      background: var(--surface2) !important;
+      border: 1px solid var(--border2) !important;
+      padding: 7px 12px !important; border-radius: 999px !important;
+    }
+
+    /* ── Hero ── */
+    .hero {
+      padding: 64px 0 44px;
+    }
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-family: var(--mono); font-size: 11px; color: var(--c-jade);
+      border: 1px solid rgba(52,211,153,.25);
+      background: rgba(52,211,153,.07);
+      padding: 7px 12px; border-radius: 999px;
+      margin-bottom: 24px;
+      letter-spacing: .5px;
+    }
+    .hero-eyebrow .dot { width: 6px; height: 6px; border-radius: 99px; background: var(--c-jade); animation: pulse 2s infinite; }
+    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.3} }
+
+    h1.headline {
+      font-family: var(--serif);
+      font-size: clamp(36px, 5.5vw, 72px);
+      line-height: 1.04;
+      letter-spacing: -.02em;
+      max-width: 14ch;
+    }
+    h1.headline em { font-style: italic; color: var(--c-blue); }
+
+    .hero-sub {
+      margin-top: 20px; max-width: 68ch;
+      color: var(--muted); font-size: 16px; line-height: 1.65;
+      font-weight: 300;
+    }
+
+    .hero-pills {
+      display: flex; flex-wrap: wrap; gap: 8px; margin-top: 24px;
+    }
+    .pill {
+      font-family: var(--mono); font-size: 11.5px;
+      padding: 7px 12px; border-radius: 999px;
+      border: 1px solid var(--border); background: var(--surface);
+      color: var(--muted);
+    }
+
+    /* ── KPI strip ── */
+    .kpi-strip {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 12px; margin: 32px 0;
+    }
+    .kpi-card {
+      border: 1px solid var(--border);
+      background: linear-gradient(180deg, var(--surface2), var(--surface) 60%);
+      border-radius: var(--r);
+      padding: 20px;
+      position: relative; overflow: hidden;
+    }
+    .kpi-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 1px;
+      background: linear-gradient(90deg, transparent, var(--border2), transparent);
+    }
+    .kpi-val {
+      font-family: var(--serif);
+      font-size: 42px; line-height: 1;
+      background: linear-gradient(135deg, #fff, rgba(255,255,255,.6));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .kpi-label { font-family: var(--mono); font-size: 11px; color: var(--muted); margin-top: 8px; letter-spacing: .4px; text-transform: uppercase; }
+    .kpi-sub { font-size: 12px; color: var(--dim); margin-top: 6px; line-height: 1.4; }
+
+    /* ── Section headers ── */
+    .section-head {
+      display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap;
+      gap: 12px; margin-bottom: 16px;
+    }
+    .section-head h2 {
+      font-family: var(--serif); font-size: 24px; font-weight: 400;
+    }
+    .section-meta { font-family: var(--mono); font-size: 11px; color: var(--muted); }
+
+    /* ── Cards ── */
+    .card {
+      border: 1px solid var(--border);
+      background: linear-gradient(160deg, var(--surface2) 0%, rgba(255,255,255,.02) 100%);
+      border-radius: var(--r2);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+    .card-head { padding: 20px 22px 0; }
+    .card-head h3 { font-size: 15px; font-weight: 600; }
+    .card-head p { font-size: 13px; color: var(--muted); margin-top: 6px; line-height: 1.45; }
+    .card-body { padding: 16px 22px 20px; }
+
+    /* ── Organism section ── */
+    #organism { margin-top: 16px; }
+
+    .organism-controls {
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 12px;
+      padding: 20px 22px 0;
+    }
+    .organism-controls h2 { font-family: var(--serif); font-size: 20px; font-weight: 400; }
+    .organism-controls p { font-size: 13px; color: var(--muted); margin-top: 4px; }
+
+    .toggle-group {
+      display: flex; gap: 0;
+      border: 1px solid var(--border); border-radius: 999px;
+      background: var(--surface); padding: 4px;
+    }
+    .toggle-btn {
+      font-family: var(--mono); font-size: 11.5px;
+      background: transparent; border: none; color: var(--muted);
+      padding: 7px 14px; border-radius: 999px; cursor: pointer;
+      transition: all .15s;
+    }
+    .toggle-btn.active {
+      background: var(--surface2);
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+
+    .organism-canvas {
+      display: grid; gap: 14px;
+      padding: 14px 18px 20px;
+    }
+    @media (min-width: 960px) {
+      .organism-canvas { grid-template-columns: 1fr 1.1fr; }
+    }
+
+    /* Image frame */
+    .img-frame {
+      border: 1px solid var(--border); border-radius: var(--r2);
+      background: linear-gradient(160deg, rgba(59,130,246,.08), rgba(52,211,153,.05));
+      position: relative; min-height: 360px;
+      overflow: hidden;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .img-frame img {
+      width: 100%; height: 100%; object-fit: cover; display: block;
+      filter: saturate(1.1);
+    }
+    /* Placeholder while image loads */
+    .img-placeholder {
+      width: 100%; min-height: 360px;
+      display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px;
+    }
+    .img-placeholder .octo-svg { opacity: .15; }
+    .img-placeholder p { font-family: var(--mono); font-size: 12px; color: var(--dim); text-align: center; }
+
+    .img-badge {
+      position: absolute; bottom: 14px; left: 14px;
+      font-family: var(--mono); font-size: 11px; padding: 7px 12px;
+      border-radius: 999px; border: 1px solid var(--border2);
+      background: rgba(6,8,16,.75);
+      backdrop-filter: blur(8px);
+    }
+
+    /* Live indicator */
+    .live-badge {
+      position: absolute; top: 14px; right: 14px;
+      display: flex; align-items: center; gap: 6px;
+      font-family: var(--mono); font-size: 10.5px; padding: 6px 10px;
+      border-radius: 999px; border: 1px solid rgba(52,211,153,.3);
+      background: rgba(52,211,153,.08);
+      color: var(--c-jade);
+    }
+    .live-dot { width: 6px; height: 6px; border-radius: 99px; background: var(--c-jade); animation: pulse 2s infinite; }
+
+    /* Overlay table panel */
+    .overlay-panel {
+      border: 1px solid var(--border); border-radius: var(--r2);
+      background: linear-gradient(180deg, var(--surface2), rgba(255,255,255,.02));
+      overflow: hidden;
+    }
+    .overlay-top {
+      padding: 16px 16px 0;
+      display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; flex-wrap: wrap;
+    }
+    .overlay-top h3 { font-size: 14px; font-weight: 600; }
+    .overlay-top p { font-size: 12.5px; color: var(--muted); margin-top: 6px; line-height: 1.4; max-width: 55ch; }
+    .meta-chip {
+      font-family: var(--mono); font-size: 11px; padding: 7px 10px;
+      border-radius: 12px; border: 1px solid var(--border); background: var(--surface);
+      color: var(--muted); white-space: nowrap;
+    }
+
+    /* Loading state */
+    .loading {
+      display: flex; align-items: center; justify-content: center;
+      padding: 40px; gap: 10px;
+      font-family: var(--mono); font-size: 12px; color: var(--dim);
+    }
+    .spinner {
+      width: 16px; height: 16px; border: 1.5px solid var(--border2);
+      border-top-color: var(--c-blue); border-radius: 50%;
+      animation: spin .7s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* Error state */
+    .error-state {
+      padding: 20px; font-family: var(--mono); font-size: 12px; color: var(--c-rose);
+      text-align: center;
+    }
+
+    /* ── Table ── */
+    .table-wrap { padding: 12px 14px 16px; overflow-x: auto; }
+    table { width: 100%; border-collapse: collapse; font-size: 12.5px; }
+    thead th {
+      text-align: left; padding: 9px 10px;
+      border-bottom: 1px solid var(--border);
+      font-family: var(--mono); font-size: 11px; color: var(--muted);
+      font-weight: 500; letter-spacing: .4px; text-transform: uppercase;
+    }
+    tbody td {
+      padding: 10px 10px; border-bottom: 1px solid rgba(255,255,255,.055);
+      vertical-align: top; line-height: 1.4;
+    }
+    tbody tr:last-child td { border-bottom: none; }
+    tbody tr:hover td { background: rgba(255,255,255,.025); }
+
+    .arm-name { font-weight: 600; font-size: 13px; }
+    .arm-sub { font-size: 12px; color: var(--muted); margin-top: 3px; }
+
+    /* Status tags */
+    .tag {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 5px 8px; border-radius: 999px;
+      border: 1px solid var(--border); background: var(--surface);
+      font-family: var(--mono); font-size: 11px; color: var(--muted);
+      white-space: nowrap;
+    }
+    .sdot { width: 7px; height: 7px; border-radius: 99px; }
+    .sdot.good { background: var(--s-good); }
+    .sdot.warn { background: var(--s-warn); }
+    .sdot.bad  { background: var(--s-bad); }
+
+    /* Lane chips */
+    .lanes { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 6px; }
+    .lane-chip {
+      font-family: var(--mono); font-size: 10.5px;
+      padding: 5px 7px; border-radius: 8px;
+      border: 1px solid var(--border); background: rgba(255,255,255,.03);
+      color: var(--muted); cursor: pointer;
+      transition: all .12s;
+    }
+    .lane-chip:hover { background: var(--surface2); color: var(--text); border-color: var(--border2); }
+    .lane-chip.control  { border-color: rgba(52,211,153,.35); color: var(--c-jade); }
+    .lane-chip.measurement { border-color: rgba(245,158,11,.3); color: var(--c-amber); }
+
+    /* ── Arm cards grid ── */
+    .arms-grid {
+      display: grid; gap: 12px;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    }
+    .arm-card {
+      border: 1px solid var(--border);
+      background: linear-gradient(160deg, var(--surface2), rgba(255,255,255,.02));
+      border-radius: var(--r);
+      padding: 18px;
+      cursor: pointer;
+      transition: all .18s;
+      position: relative; overflow: hidden;
+    }
+    .arm-card:hover {
+      border-color: var(--border2);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow2);
+    }
+    .arm-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; width: 3px; bottom: 0;
+      border-radius: 3px 0 0 3px;
+    }
+    .arm-card.warn::before { background: var(--c-amber); }
+    .arm-card.bad::before  { background: var(--s-bad); }
+    .arm-card.good::before { background: var(--c-jade); }
+    .arm-card-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 10px; }
+    .arm-card-name { font-weight: 600; font-size: 14px; }
+    .arm-card-sub { font-size: 12px; color: var(--muted); margin-top: 5px; line-height: 1.4; }
+    .arm-card-entry {
+      font-family: var(--mono); font-size: 10.5px; color: var(--dim); margin-top: 10px;
+    }
+    .arm-card-revenue {
+      margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--border);
+      font-size: 12px; color: var(--muted); line-height: 1.35;
+    }
+    .arm-card-revenue strong { color: var(--text); font-size: 11px; display: block; margin-bottom: 3px; font-family: var(--mono); text-transform: uppercase; letter-spacing: .4px; }
+
+    /* ── Shortcuts ── */
+    .shortcuts-grid {
+      display: grid; gap: 10px;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    }
+    .shortcut-item {
+      border: 1px solid var(--border); background: var(--surface);
+      border-radius: var(--r); padding: 14px;
+      display: flex; align-items: flex-start; justify-content: space-between; gap: 12px;
+    }
+    .shortcut-item b { display: block; font-size: 13px; }
+    .shortcut-item span { display: block; font-size: 12px; color: var(--muted); margin-top: 5px; line-height: 1.35; }
+    .shortcut-link {
+      flex-shrink: 0; font-family: var(--mono); font-size: 11.5px;
+      padding: 7px 12px; border-radius: 10px; border: 1px solid var(--border2);
+      background: var(--surface2); color: var(--text); text-decoration: none;
+      transition: all .12s; white-space: nowrap;
+    }
+    .shortcut-link:hover { background: var(--border); transform: translateY(-1px); }
+
+    /* ── Evidence / IP ── */
+    .ev-grid {
+      display: grid; gap: 12px;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    }
+    .widget-slot {
+      border: 1px dashed var(--border);
+      border-radius: var(--r);
+      padding: 16px; background: rgba(255,255,255,.02);
+      min-height: 80px;
+    }
+    .widget-slot h4 { font-family: var(--mono); font-size: 12px; color: var(--muted); margin-bottom: 8px; }
+    .widget-slot .hint { font-size: 12px; color: var(--dim); line-height: 1.4; }
+
+    /* ── IP registry ── */
+    .ip-schema {
+      font-family: var(--mono); font-size: 12px; color: var(--dim);
+      padding: 14px; border-radius: 12px;
+      background: rgba(59,130,246,.06); border: 1px solid rgba(59,130,246,.18);
+      line-height: 1.6;
+    }
+    .ip-schema .field { color: var(--c-blue); }
+    .ip-schema .type { color: var(--muted); }
+
+    /* ── CTA block ── */
+    .cta-block {
+      text-align: center; padding: 48px 20px;
+    }
+    .cta-block h2 { font-family: var(--serif); font-size: 28px; font-weight: 400; margin-bottom: 12px; }
+    .cta-block p { font-size: 15px; color: var(--muted); max-width: 52ch; margin: 0 auto 24px; line-height: 1.6; }
+    .cta-email {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-family: var(--mono); font-size: 14px;
+      padding: 14px 24px; border-radius: var(--r);
+      border: 1px solid var(--border2); background: var(--surface2);
+      color: var(--text); text-decoration: none;
+      transition: all .15s;
+    }
+    .cta-email:hover { background: var(--border); transform: translateY(-2px); }
+
+    /* ── Footer ── */
+    footer {
+      margin-top: 24px; padding-top: 20px;
+      border-top: 1px solid var(--border);
+    }
+    .footer-grid {
+      display: grid; gap: 16px;
+    }
+    @media (min-width: 640px) { .footer-grid { grid-template-columns: 1.5fr 1fr; } }
+    .footer-brand { font-family: var(--serif); font-size: 18px; margin-bottom: 8px; }
+    .footer-copy { font-size: 12.5px; color: var(--muted); line-height: 1.55; }
+    .footer-links { font-family: var(--mono); font-size: 12px; color: var(--muted); line-height: 2; }
+    .footer-links a { color: var(--muted); text-decoration: none; }
+    .footer-links a:hover { color: var(--text); }
+    .footer-meta { margin-top: 16px; font-family: var(--mono); font-size: 11px; color: var(--dim); }
+
+    /* ── Toast ── */
+    .toast {
+      position: fixed; bottom: 20px; left: 20px; right: 20px;
+      max-width: 480px; z-index: 9999;
+      border: 1px solid var(--border2);
+      border-radius: 16px;
+      background: rgba(13,16,32,.92);
+      backdrop-filter: blur(16px);
+      padding: 12px 16px; color: var(--text);
+      box-shadow: var(--shadow);
+      display: none;
+      animation: slideUp .2s ease;
+    }
+    @keyframes slideUp { from { transform: translateY(8px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+    .toast-msg { font-size: 13.5px; font-weight: 600; }
+    .toast-sub { font-family: var(--mono); font-size: 11.5px; color: var(--muted); margin-top: 4px; }
+
+    /* ── Section spacing ── */
+    .section { margin-top: 48px; }
+
+    /* ── Responsive ── */
+    @media (max-width: 640px) {
+      nav a:not(.nav-cta):not(:last-child) { display: none; }
+      h1.headline { font-size: 32px; }
+    }
+
+    /* ── Skeleton loader ── */
+    .skeleton {
+      background: linear-gradient(90deg, var(--surface) 25%, var(--surface2) 50%, var(--surface) 75%);
+      background-size: 200% 100%;
+      animation: shimmer 1.5s infinite;
+      border-radius: 6px; height: 14px;
+    }
+    @keyframes shimmer { from { background-position: 200% 0; } to { background-position: -200% 0; } }
+  </style>
+</head>
+
+<body>
+<!-- ═══════════════════════════════════
+     HEADER
+═══════════════════════════════════ -->
+<header>
+  <div class="bar">
+    <a class="brand" href="#top">
+      <div class="mark" aria-hidden="true"></div>
+      <div>
+        <div class="brand-name">Tech 4 Humanity</div>
+        <div class="brand-sub">Origin Octave · 8×8 Surface</div>
+      </div>
+    </a>
+    <nav aria-label="Primary navigation">
+      <a href="#organism">Organism</a>
+      <a href="#arms">Arms</a>
+      <a href="#evidence">Evidence</a>
+      <a href="#ip">IP</a>
+      <a href="#contact" class="nav-cta">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top" class="wrap">
+
+  <!-- ═══ HERO ═══ -->
+  <section class="hero">
+    <div class="hero-eyebrow">
+      <span class="dot"></span>
+      <span>ORIGIN OCTAVE · GOVERNED RESEARCH ORGANISM</span>
+    </div>
+    <h1 class="headline">We expand <em>deliberately.</em><br>Not randomly.</h1>
+    <p class="hero-sub">
+      This is not a portfolio site. It's a staged research organism.
+      Each arm is a programme. Each subtopic is a measurable capability.
+      The 8×8 grid is a controlled IP surface — not a single-programme risk.
+    </p>
+    <div class="hero-pills">
+      <div class="pill">Horizontal: exploration → measurement → control → deployment</div>
+      <div class="pill">Vertical: 8 areas × 8 lanes = 64 capability vectors</div>
+      <div class="pill">We don't treat tech like tools. We treat it like weather.</div>
+    </div>
+  </section>
+
+  <!-- ═══ KPI STRIP ═══ -->
+  <div class="kpi-strip">
+    <div class="kpi-card">
+      <div class="kpi-val" id="kpiArms">8</div>
+      <div class="kpi-label">Governed Arms</div>
+      <div class="kpi-sub">Independent experimental programmes</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-val" id="kpiLanes">64</div>
+      <div class="kpi-label">Capability Lanes</div>
+      <div class="kpi-sub">Measurable artefact slots per surface</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-val">3</div>
+      <div class="kpi-label">Entry Signals</div>
+      <div class="kpi-sub">Trust now · Revenue now · Moat later</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-val">∞</div>
+      <div class="kpi-label">Partner Attach</div>
+      <div class="kpi-sub">Fund one arm without buying the whole animal</div>
+    </div>
+  </div>
+
+  <!-- ═══ ORGANISM VIEW ═══ -->
+  <section id="organism" class="card section">
+    <div class="organism-controls">
+      <div>
+        <h2>The organism view</h2>
+        <p>Same image. Two audiences. No rewrites. — Investor, accountant, or partner conversation starter.</p>
+      </div>
+      <div class="toggle-group" role="group" aria-label="Display mode">
+        <button class="toggle-btn active" id="btnOverlay">Overlay</button>
+        <button class="toggle-btn" id="btnTable">Full table</button>
+      </div>
+    </div>
+
+    <div class="organism-canvas">
+      <!-- Left: image frame -->
+      <div class="img-frame" id="imgFrame">
+        <!-- Swap to real octopus asset: <img src="/assets/img/octopus-stage-2.jpg" alt="Research organism visual" /> -->
+        <div class="img-placeholder">
+          <!-- SVG octopus silhouette placeholder -->
+          <svg class="octo-svg" width="160" height="160" viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <ellipse cx="80" cy="60" rx="34" ry="38" fill="white" opacity=".8"/>
+            <!-- Arms -->
+            <path d="M46 72 C28 85 20 110 26 128 C30 140 20 148 14 142" stroke="white" stroke-width="10" stroke-linecap="round" fill="none" opacity=".7"/>
+            <path d="M54 88 C42 105 44 130 36 148" stroke="white" stroke-width="9" stroke-linecap="round" fill="none" opacity=".65"/>
+            <path d="M70 96 C66 115 68 138 60 156" stroke="white" stroke-width="8" stroke-linecap="round" fill="none" opacity=".6"/>
+            <path d="M80 98 C80 118 80 140 80 158" stroke="white" stroke-width="8" stroke-linecap="round" fill="none" opacity=".6"/>
+            <path d="M90 96 C94 115 92 138 100 156" stroke="white" stroke-width="8" stroke-linecap="round" fill="none" opacity=".6"/>
+            <path d="M106 88 C118 105 116 130 124 148" stroke="white" stroke-width="9" stroke-linecap="round" fill="none" opacity=".65"/>
+            <path d="M114 72 C132 85 140 110 134 128 C130 140 140 148 146 142" stroke="white" stroke-width="10" stroke-linecap="round" fill="none" opacity=".7"/>
+            <!-- Eyes -->
+            <circle cx="68" cy="52" r="7" fill="#060810" opacity=".9"/>
+            <circle cx="92" cy="52" r="7" fill="#060810" opacity=".9"/>
+            <circle cx="70" cy="50" r="3" fill="white"/>
+            <circle cx="94" cy="50" r="3" fill="white"/>
+          </svg>
+          <p>Place octopus-stage-2.jpg at /assets/img/<br>Replace &lt;img&gt; in #imgFrame</p>
+        </div>
+        <div class="img-badge" id="stageBadge">Stage 1–2 · Dual arm → Quadrant</div>
+        <div class="live-badge"><span class="live-dot"></span>BRIDGE · LIVE</div>
+      </div>
+
+      <!-- Right: overlay panel -->
+      <div class="overlay-panel" id="overlayPanel">
+        <div class="overlay-top">
+          <div>
+            <h3>8 arms × 8 lanes</h3>
+            <p>Each row is a programme. Each lane is a measurable capability. Click a lane to inspect it.
+            This is how it stops being thought leadership and becomes defensible R&D.</p>
+          </div>
+          <div class="meta-chip" id="metaChip">Loading…</div>
+        </div>
+        <div id="overlayTableWrap" class="table-wrap">
+          <div class="loading"><div class="spinner"></div>Fetching from Supabase…</div>
+        </div>
+      </div>
+
+      <!-- Table-only panel (hidden by default) -->
+      <div class="overlay-panel" id="tablePanel" style="display:none; grid-column: 1/-1;">
+        <div class="overlay-top">
+          <div>
+            <h3>Full surface table</h3>
+            <p>Export-ready. Swap data source to CSV or pipe to your IP registry.</p>
+          </div>
+          <div class="meta-chip mono">8 × 8 = 64 vectors</div>
+        </div>
+        <div id="tableWrap" class="table-wrap">
+          <div class="loading"><div class="spinner"></div>Loading…</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ ARMS CARDS ═══ -->
+  <section id="arms" class="section">
+    <div class="section-head">
+      <h2>Arms (programmes)</h2>
+      <span class="section-meta" id="armsMeta">Loading from registry…</span>
+    </div>
+    <div class="arms-grid" id="armsGrid">
+      <!-- skeleton -->
+      <div class="arm-card"><div class="skeleton" style="height:18px;margin-bottom:8px"></div><div class="skeleton" style="width:70%"></div></div>
+      <div class="arm-card"><div class="skeleton" style="height:18px;margin-bottom:8px"></div><div class="skeleton" style="width:60%"></div></div>
+      <div class="arm-card"><div class="skeleton" style="height:18px;margin-bottom:8px"></div><div class="skeleton" style="width:75%"></div></div>
+    </div>
+  </section>
+
+  <!-- ═══ SHORTCUTS ═══ -->
+  <section id="shortcuts" class="section">
+    <div class="section-head">
+      <h2>Research shortcuts</h2>
+      <span class="section-meta">External proof surfaces</span>
+    </div>
+    <div class="shortcuts-grid">
+      <div class="shortcut-item">
+        <div>
+          <b>AI Sweet Spots research site</b>
+          <span>Public proof layer. Studies, numbers, and artefacts. Use as evidence anchor.</span>
+        </div>
+        <a class="shortcut-link" href="https://ai-sweet-spots-1ix30jtq7-troys-projects-5f7de6da.vercel.app/research/" target="_blank" rel="noreferrer">Open ↗</a>
+      </div>
+      <div class="shortcut-item">
+        <div>
+          <b>HoloOrg Agent Factory</b>
+          <span>Pricing, calculators, CV/RFT analysis, conversion tools.</span>
+        </div>
+        <a class="shortcut-link" href="https://holoorg-agent-factory.lovable.app/" target="_blank" rel="noreferrer">Open ↗</a>
+      </div>
+      <div class="shortcut-item">
+        <div>
+          <b>Case studies</b>
+          <span>Seed set. Wire to Supabase registry and render everywhere from one source.</span>
+        </div>
+        <a class="shortcut-link" href="https://holoorg-agent-factory.lovable.app/case-studies" target="_blank" rel="noreferrer">Open ↗</a>
+      </div>
+      <div class="shortcut-item">
+        <div>
+          <b>Pricing page</b>
+          <span>Monitor for drift. Keep sell-now ladder consistent across all surfaces.</span>
+        </div>
+        <a class="shortcut-link" href="https://holoorg-agent-factory.lovable.app/pricing" target="_blank" rel="noreferrer">Open ↗</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ EVIDENCE + GOVERNANCE ═══ -->
+  <section id="evidence" class="section">
+    <div class="section-head">
+      <h2>Evidence + governance</h2>
+      <span class="section-meta">Nothing is REAL without attached evidence</span>
+    </div>
+    <div class="ev-grid">
+      <div class="card">
+        <div class="card-head">
+          <h3>Reality Ledger</h3>
+          <p>Anti "paper city" rail. Nothing claims REAL status without a linked artefact.</p>
+        </div>
+        <div class="card-body">
+          <div class="widget-slot" id="widget-reality-ledger">
+            <h4>WIDGET · reality-ledger</h4>
+            <div class="hint">Inject live widget HTML from snippet table by slug. Expected: status counts, last verified date, top 3 gaps.</div>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-head">
+          <h3>MCP health</h3>
+          <p>Operational truth. Fail-only signals. No vanity dashboards.</p>
+        </div>
+        <div class="card-body">
+          <div class="widget-slot" id="widget-mcp-health">
+            <h4>WIDGET · mcp-health</h4>
+            <div class="hint">Drop-in from Command Centre widget pattern. Shows Lambda fleet status, last successful runs.</div>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-head">
+          <h3>Metrics feed</h3>
+          <p>One JSON endpoint. Every page renders from it. No drift between surfaces.</p>
+        </div>
+        <div class="card-body">
+          <div class="widget-slot">
+            <h4 style="font-family:var(--mono);font-size:11px;">/metrics.json</h4>
+            <div class="hint">Publish: study_count, participant_total, last_updated, arm_progress[], drift_flags[]. UI stays honest.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ IP REGISTRY ═══ -->
+  <section id="ip" class="section">
+    <div class="section-head">
+      <h2>IP registry</h2>
+      <span class="section-meta">Defensible R&D framing — render everywhere from one source</span>
+    </div>
+    <div class="card">
+      <div class="card-head">
+        <h3>Defensibility framing</h3>
+        <p>
+          One registry. Many surfaces. Every claim linked to evidence. Every asset has a status:
+          <strong>REAL</strong> (verified artefact), <strong>PARTIAL</strong> (in progress), <strong>PRETEND</strong> (intent only).
+        </p>
+      </div>
+      <div class="card-body">
+        <div class="ip-schema">
+          <span class="field">ip_asset_id</span>  <span class="type">UUID</span>  — primary key<br>
+          <span class="field">arm_id</span>        <span class="type">TEXT → research_arms(id)</span><br>
+          <span class="field">title</span>         <span class="type">TEXT</span>  — human claim<br>
+          <span class="field">status</span>        <span class="type">ENUM('REAL','PARTIAL','PRETEND')</span><br>
+          <span class="field">evidence_links</span><span class="type">JSONB</span>  — array of {url, type, verified}<br>
+          <span class="field">licensing_angle</span><span class="type">TEXT</span>  — commercial framing<br>
+          <span class="field">rd_expenditure</span><span class="type">NUMERIC</span>  — ATO R&D substantiation<br>
+          <span class="field">created_at</span>    <span class="type">TIMESTAMPTZ</span>
+        </div>
+        <div class="widget-slot" id="widget-ip-registry" style="margin-top:12px;">
+          <h4>WIDGET · ip-registry</h4>
+          <div class="hint">Inject live IP asset table. Filter by arm_id. Show REAL / PARTIAL / PRETEND counts. Links to Reality Ledger.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ CONTACT CTA ═══ -->
+  <section id="contact" class="section">
+    <div class="card">
+      <div class="cta-block">
+        <h2>You can fund one arm<br>without buying the whole animal.</h2>
+        <p>
+          Partners attach to individual arms. Funding without revealing the full roadmap.
+          No single-project dependency. For partnerships, R&D alignment, or standards collaboration:
+        </p>
+        <a class="cta-email" href="mailto:contact@tech4humanity.com.au">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg>
+          contact@tech4humanity.com.au
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer>
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">Origin Octave · Tech 4 Humanity</div>
+        <div class="footer-copy">
+          A staged research organism: exploration → measurement → control → deployment.
+          The structure is the message. 8 governed programmes, 64 measurable capability lanes.
+          Defensible R&D — not thought leadership.
+        </div>
+      </div>
+      <div class="footer-links">
+        <a href="https://tech4humanity.com.au">Tech4Humanity</a><br>
+        <a href="https://ai-sweet-spots-1ix30jtq7-troys-projects-5f7de6da.vercel.app/research/">AI Sweet Spots</a><br>
+        <a href="https://holoorg-agent-factory.lovable.app/">HoloOrg · AHC</a><br>
+        <a href="mailto:contact@tech4humanity.com.au">contact@tech4humanity.com.au</a>
+      </div>
+    </div>
+    <div class="footer-meta">
+      Sydney, Australia · Data source: Bridge → Supabase (research_arms + research_lanes) · Rendered live
+    </div>
+  </footer>
+
+</main>
+
+<!-- Toast -->
+<div class="toast" id="toast" role="status" aria-live="polite">
+  <div class="toast-msg" id="toastMsg"></div>
+  <div class="toast-sub" id="toastSub"></div>
+</div>
+
+<script>
+/* ════════════════════════════════════════
+   CONFIG — Bridge-connected
+   All data fetched live from Supabase via Bridge
+════════════════════════════════════════ */
+const BRIDGE  = 'https://m5oqj21chd.execute-api.ap-southeast-2.amazonaws.com/lambda/invoke';
+const SQL_FN  = 'troy-sql-executor';
+const EMAIL_FN = 'troy-email-send';
+
+/* ════════════════════════════════════════
+   BRIDGE FETCH
+════════════════════════════════════════ */
+async function bridgeQuery(sql) {
+  const res = await fetch(BRIDGE, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ functionName: SQL_FN, payload: { sql } })
+  });
+  const d = await res.json();
+  const body = JSON.parse(d.result.body);
+  if (body.error) throw new Error(body.error);
+  return body.rows || [];
+}
+
+/* ════════════════════════════════════════
+   HELPERS
+════════════════════════════════════════ */
+function statusDot(m) {
+  if (m === 'good') return 'good';
+  if (m === 'warn') return 'warn';
+  return 'bad';
+}
+
+function laneStatus(s) {
+  if (s === 'control') return 'control';
+  if (s === 'measurement') return 'measurement';
+  return '';
+}
+
+function toastShow(msg, sub) {
+  document.getElementById('toastMsg').textContent = msg;
+  document.getElementById('toastSub').textContent = sub || '';
+  const t = document.getElementById('toast');
+  t.style.display = 'block';
+  clearTimeout(window.__tt);
+  window.__tt = setTimeout(() => t.style.display = 'none', 3000);
+}
+
+/* ════════════════════════════════════════
+   LOAD DATA FROM SUPABASE VIA BRIDGE
+════════════════════════════════════════ */
+let ARMS_DATA = [];
+
+async function loadSurface() {
+  // Single query: arms + lanes aggregated
+  const sql = `
+    SELECT
+      a.id, a.name, a.entry_point, a.one_liner, a.stage,
+      a.progress, a.maturity, a.revenue_hook, a.widget_slug,
+      COALESCE(
+        json_agg(
+          json_build_object(
+            'id', l.id,
+            'name', l.lane_name,
+            'order', l.lane_order,
+            'status', l.status,
+            'evidence', l.evidence_links
+          ) ORDER BY l.lane_order
+        ) FILTER (WHERE l.id IS NOT NULL),
+        '[]'
+      ) as lanes
+    FROM research_arms a
+    LEFT JOIN research_lanes l ON l.arm_id = a.id
+    GROUP BY a.id, a.name, a.entry_point, a.one_liner, a.stage,
+             a.progress, a.maturity, a.revenue_hook, a.widget_slug
+    ORDER BY
+      CASE a.maturity WHEN 'good' THEN 1 WHEN 'warn' THEN 2 ELSE 3 END,
+      a.id
+  `;
+  return await bridgeQuery(sql);
+}
+
+/* ════════════════════════════════════════
+   RENDER: OVERLAY TABLE
+════════════════════════════════════════ */
+function renderOverlayTable(arms) {
+  const rows = arms.map(a => {
+    const lanes = (a.lanes || []).map(l => {
+      const sc = laneStatus(l.status);
+      return `<span class="lane-chip ${sc}" data-arm="${a.id}" data-lane="${encodeURIComponent(l.name)}" data-arm-name="${encodeURIComponent(a.name)}" data-prog="${encodeURIComponent(a.progress)}">${l.name}</span>`;
+    }).join('');
+    const dc = statusDot(a.maturity);
+    return `
+      <tr>
+        <td>
+          <div class="arm-name">${a.name}</div>
+          <div class="arm-sub">${a.one_liner}</div>
+          <div style="margin-top:8px">
+            <span class="tag"><span class="sdot ${dc}"></span>${a.entry_point}</span>
+          </div>
+        </td>
+        <td>
+          <div class="lanes">${lanes}</div>
+        </td>
+        <td>
+          <span class="tag"><span class="sdot ${dc}"></span>${a.progress}</span>
+        </td>
+      </tr>
+    `;
+  }).join('');
+
+  return `
+    <table>
+      <thead>
+        <tr>
+          <th style="width:26%">Arm</th>
+          <th style="width:56%">Lanes (click to inspect)</th>
+          <th style="width:18%">Progress</th>
+        </tr>
+      </thead>
+      <tbody>${rows}</tbody>
+    </table>
+  `;
+}
+
+/* ════════════════════════════════════════
+   RENDER: FULL TABLE
+════════════════════════════════════════ */
+function renderFullTable(arms) {
+  const rows = arms.map(a => {
+    const laneNames = (a.lanes || []).map(l => l.name).join(' · ');
+    const dc = statusDot(a.maturity);
+    return `
+      <tr>
+        <td><div class="arm-name">${a.name}</div><div class="arm-sub">${a.one_liner}</div></td>
+        <td style="font-family:var(--mono);font-size:11px;color:var(--muted)">${laneNames}</td>
+        <td><span class="tag"><span class="sdot ${dc}"></span>${a.progress}</span></td>
+        <td style="font-family:var(--mono);font-size:11px;color:var(--muted)">${a.entry_point}</td>
+        <td style="font-size:12px;color:var(--muted);max-width:160px">${a.revenue_hook || '—'}</td>
+      </tr>
+    `;
+  }).join('');
+
+  return `
+    <table>
+      <thead>
+        <tr>
+          <th>Arm</th>
+          <th>Lanes</th>
+          <th>Progress</th>
+          <th>Entry point</th>
+          <th>Revenue hook</th>
+        </tr>
+      </thead>
+      <tbody>${rows}</tbody>
+    </table>
+  `;
+}
+
+/* ════════════════════════════════════════
+   RENDER: ARM CARDS
+════════════════════════════════════════ */
+function renderArmCards(arms) {
+  const grid = document.getElementById('armsGrid');
+  grid.innerHTML = arms.map(a => {
+    const dc = statusDot(a.maturity);
+    const laneChips = (a.lanes || []).slice(0,4).map(l => {
+      const sc = laneStatus(l.status);
+      return `<span class="lane-chip ${sc}">${l.name}</span>`;
+    }).join('');
+    const more = (a.lanes || []).length > 4 ? `<span class="lane-chip">+${a.lanes.length - 4} more</span>` : '';
+    return `
+      <div class="arm-card ${a.maturity}" data-id="${a.id}">
+        <div class="arm-card-head">
+          <div>
+            <div class="arm-card-name">${a.name}</div>
+            <span class="tag" style="margin-top:6px;display:inline-flex"><span class="sdot ${dc}"></span>${a.progress}</span>
+          </div>
+        </div>
+        <div class="arm-card-sub">${a.one_liner}</div>
+        <div class="arm-card-entry">${a.entry_point}</div>
+        <div class="lanes" style="margin-top:10px">${laneChips}${more}</div>
+        <div class="arm-card-revenue">
+          <strong>Revenue hook</strong>
+          ${a.revenue_hook || 'TBD'}
+        </div>
+      </div>
+    `;
+  }).join('');
+
+  document.getElementById('armsMeta').textContent = `${arms.length} programmes · ${arms.reduce((s,a)=>s+(a.lanes||[]).length,0)} lanes · live from Supabase`;
+
+  grid.querySelectorAll('.arm-card').forEach(el => {
+    el.addEventListener('click', () => {
+      const arm = arms.find(a => a.id === el.dataset.id);
+      if (arm) toastShow(arm.name, arm.one_liner);
+    });
+  });
+}
+
+/* ════════════════════════════════════════
+   WIRE LANE CLICK (delegated)
+════════════════════════════════════════ */
+function wireLaneClicks() {
+  document.addEventListener('click', e => {
+    const chip = e.target.closest('.lane-chip[data-arm]');
+    if (!chip) return;
+    const armName = decodeURIComponent(chip.dataset.armName || chip.dataset.arm);
+    const laneName = decodeURIComponent(chip.dataset.lane);
+    const prog = decodeURIComponent(chip.dataset.prog || '');
+    toastShow(`${armName} — ${laneName}`, prog ? `Progress: ${prog}` : '');
+  });
+}
+
+/* ════════════════════════════════════════
+   TOGGLE: OVERLAY / TABLE
+════════════════════════════════════════ */
+function wireModeToggle() {
+  const b1 = document.getElementById('btnOverlay');
+  const b2 = document.getElementById('btnTable');
+  const op = document.getElementById('overlayPanel');
+  const tp = document.getElementById('tablePanel');
+  const ic = document.getElementById('imgFrame');
+
+  b1.addEventListener('click', () => {
+    b1.classList.add('active'); b2.classList.remove('active');
+    op.style.display = ''; tp.style.display = 'none';
+    ic.style.display = '';
+  });
+  b2.addEventListener('click', () => {
+    b2.classList.add('active'); b1.classList.remove('active');
+    op.style.display = 'none'; tp.style.display = '';
+    ic.style.display = 'none';
+  });
+}
+
+/* ════════════════════════════════════════
+   WIDGET INJECTION — Bridge-native
+   Fetches widget HTML from ui_snippets table via Bridge
+════════════════════════════════════════ */
+async function injectWidget(slug, targetId) {
+  try {
+    const rows = await bridgeQuery(
+      `SELECT html, title, version FROM ui_snippets WHERE slug = '${slug}' AND active = TRUE LIMIT 1`
+    );
+    if (rows && rows.length && rows[0].html) {
+      const el = document.getElementById(targetId);
+      if (el) el.innerHTML = rows[0].html;
+    }
+  } catch(e) {
+    // silent — slot stays as placeholder
+  }
+}
+
+/* ════════════════════════════════════════
+   INIT
+════════════════════════════════════════ */
+(async function init() {
+  wireModeToggle();
+  wireLaneClicks();
+
+  try {
+    const arms = await loadSurface();
+    ARMS_DATA = arms;
+
+    // Update KPI
+    const totalLanes = arms.reduce((s,a) => s + (a.lanes||[]).length, 0);
+    document.getElementById('kpiArms').textContent = arms.length;
+    document.getElementById('kpiLanes').textContent = totalLanes;
+    document.getElementById('metaChip').textContent = `Surface: ${totalLanes} vectors · live`;
+
+    // Render overlay table
+    document.getElementById('overlayTableWrap').innerHTML = renderOverlayTable(arms);
+
+    // Render full table (pre-render for instant toggle)
+    document.getElementById('tableWrap').innerHTML = renderFullTable(arms);
+
+    // Render arm cards
+    renderArmCards(arms);
+
+    // Update stage badge from data
+    const warned = arms.filter(a => a.maturity === 'warn').length;
+    document.getElementById('stageBadge').textContent =
+      `Stage ${warned >= 4 ? '3' : warned >= 2 ? '2' : '1'} · ${warned} active arms`;
+
+  } catch(err) {
+    console.error('Surface load failed:', err);
+    document.getElementById('overlayTableWrap').innerHTML =
+      `<div class="error-state">Failed to load from Supabase: ${err.message}<br>Falling back to static…</div>`;
+
+    // Fallback: static seed data
+    loadStaticFallback();
+  }
+
+  // Widget injection — Bridge-native (active)
+  injectWidget('mcp-health',      'widget-mcp-health');
+  injectWidget('reality-ledger',  'widget-reality-ledger');
+  injectWidget('ip-registry',     'widget-ip-registry');
+
+  // Last updated timestamp
+  try {
+    const ts = await bridgeQuery(
+      `SELECT MAX(updated_at) as last_updated FROM research_arms`
+    );
+    if (ts && ts[0] && ts[0].last_updated) {
+      const d = new Date(ts[0].last_updated);
+      const fmt = d.toLocaleDateString('en-AU', { day:'numeric', month:'short', year:'numeric', hour:'2-digit', minute:'2-digit', timeZone:'Australia/Sydney' });
+      const footer = document.querySelector('.footer-meta');
+      if (footer) footer.textContent += ` · Registry updated ${fmt} AEDT`;
+    }
+  } catch(e) {}
+})();
+
+/* ════════════════════════════════════════
+   STATIC FALLBACK (if Bridge unreachable)
+════════════════════════════════════════ */
+function loadStaticFallback() {
+  const STATIC = [
+    { id:'ass', name:'AI Sweet Spots', entry_point:'Economic entry point', one_liner:'From performance curiosity → measurable productivity science', progress:'Measurement → Control', maturity:'warn', revenue_hook:'Research licensing, enterprise benchmarking, certification', lanes:[{name:'Core curves',status:'control'},{name:'Measurement metrics',status:'control'},{name:'Population profiles',status:'measurement'},{name:'Adaptive involvement',status:'measurement'},{name:'Replication',status:'measurement'},{name:'Negative responders',status:'exploration'},{name:'Translation layer',status:'exploration'},{name:'Deployment playbooks',status:'exploration'}] },
+    { id:'dcp', name:'Digital Child Protection', entry_point:'Immediate societal entry point', one_liner:'From safety concern → ecosystem protection infrastructure', progress:'Exploration → Measurement', maturity:'warn', revenue_hook:'Gov contracts, compliance tooling, platform licensing', lanes:[{name:'Platform compliance',status:'measurement'},{name:'Ban monitoring',status:'measurement'},{name:'Network protection',status:'exploration'},{name:'Consent architecture',status:'exploration'},{name:'Behaviour modelling',status:'exploration'},{name:'Cost-benefit analysis',status:'exploration'},{name:'Family tooling',status:'exploration'},{name:'Policy translation',status:'exploration'}] },
+    { id:'care', name:'CARE / Cultural Sovereignty', entry_point:'Trust entry point', one_liner:'From inclusion conversation → sovereign AI capability', progress:'Exploration', maturity:'bad', revenue_hook:'Community grants, sovereign model licensing, advisory', lanes:[{name:'Cultural risk'},{name:'Community AI literacy'},{name:'Indigenous models'},{name:'Language access'},{name:'Trust frameworks'},{name:'Governance patterns'},{name:'Adoption disparity'},{name:'Community deployment'}].map(l=>({...l,status:'exploration'})) },
+    { id:'xai', name:'Extreme AI Effects', entry_point:'Safety entry point', one_liner:'From edge curiosity → safety science', progress:'Exploration → Measurement', maturity:'warn', revenue_hook:'Safety audits, enterprise risk consulting, publication', lanes:[{name:'Extreme gains',status:'measurement'},{name:'Skill atrophy',status:'measurement'},{name:'Psychological effects',status:'exploration'},{name:'Medication interaction',status:'exploration'},{name:'Cognitive overload',status:'exploration'},{name:'Safety thresholds',status:'exploration'},{name:'High-stakes scenarios',status:'exploration'},{name:'Mitigation protocols',status:'exploration'}] },
+    { id:'xover', name:'X-overpoints (Economic + Workforce)', entry_point:'Market entry point', one_liner:'From labour change → economic restructuring insight', progress:'Exploration', maturity:'bad', revenue_hook:'Economic advisory, workforce analytics, policy consulting', lanes:['Hiring distortion','Cognitive arbitrage','Market mispricing','Team asymmetry','Capability stacking','Competitive displacement','Capital signalling','Labour redesign'].map(n=>({name:n,status:'exploration'})) },
+    { id:'bio', name:'Human Biology × AI', entry_point:'Clinical entry point', one_liner:'From body ignored → embodied intelligence models', progress:'Exploration', maturity:'bad', revenue_hook:'Clinical partnerships, biomarker licensing, med-tech', lanes:['Sleep','Hormones','Neurodivergence','Physical cognition','Biomarkers','Interoception','Ageing effects','Clinical integration'].map(n=>({name:n,status:'exploration'})) },
+    { id:'mns', name:'MyNeuralSignal', entry_point:'Long-horizon moat', one_liner:'From abstract trust → measurable human signal integrity', progress:'Exploration → Measurement', maturity:'warn', revenue_hook:'Signal data licensing, compliance tooling, BCI integration', lanes:[{name:'Signal capture',status:'measurement'},{name:'Trust metrics',status:'measurement'},{name:'Consent telemetry',status:'exploration'},{name:'Validation methods',status:'exploration'},{name:'Compliance mapping',status:'exploration'},{name:'Biosignal translation',status:'exploration'},{name:'Risk detection',status:'exploration'},{name:'Auditability',status:'exploration'}] },
+    { id:'ubi', name:'Unified Biological Intelligence', entry_point:'Long-horizon moat', one_liner:'From research synthesis → long-term human protection doctrine', progress:'Exploration', maturity:'bad', revenue_hook:'Foundational IP, standards body, long-horizon licensing', lanes:['Foundational theory','Neuro intelligence','Emotional intelligence','Somatic intelligence','Bioelectromagnetic','Safety boundaries','Certification models','Human preservation'].map(n=>({name:n,status:'exploration'})) }
+  ];
+  ARMS_DATA = STATIC;
+  const totalLanes = STATIC.reduce((s,a)=>s+a.lanes.length,0);
+  document.getElementById('kpiArms').textContent = STATIC.length;
+  document.getElementById('kpiLanes').textContent = totalLanes;
+  document.getElementById('metaChip').textContent = `Surface: ${totalLanes} vectors · static fallback`;
+  document.getElementById('overlayTableWrap').innerHTML = renderOverlayTable(STATIC);
+  document.getElementById('tableWrap').innerHTML = renderFullTable(STATIC);
+  renderArmCards(STATIC);
+}
+</script>
+</body>
+</html>
