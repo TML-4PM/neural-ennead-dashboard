@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Papa from 'papaparse';
-import { Mic, Image, Download, Bookmark, BookMarked, Share2, MessageSquare, X, Send, FileText } from 'lucide-react';
+import { Mic, Image, Download, Bookmark, BookMarked,  MessageSquare, X, Send, FileText } from 'lucide-react';
 
 const EnhancedExecutiveDashboard = () => {
   // State management
@@ -370,13 +370,10 @@ const EnhancedExecutiveDashboard = () => {
     }
   };
 
-  // Open document in Google Docs
+  // Open document in Google Docs (reserved for future use)
+  // eslint-disable-next-line no-unused-vars
   const openInGoogleDocs = (docName) => {
-    // In a real implementation, this would open the document in Google Docs
-    // or redirect to a Google Docs URL
     alert(`Opening "${docName}" in Google Docs...`);
-    
-    // Update reading progress (simulate)
     if (!readingProgress[docName] || readingProgress[docName] < 10) {
       updateReadingProgress(docName, 10);
     }
