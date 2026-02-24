@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Papa from 'papaparse';
-import { Mic, Image, Download, Bookmark, BookmarkCheck, Share2, MessageSquare, X, Send, FileText } from 'lucide-react';
+import { Mic, Image, Download, Bookmark, BookMarked, Share2, MessageSquare, X, Send, FileText } from 'lucide-react';
 
 const EnhancedExecutiveDashboard = () => {
   // State management
@@ -529,11 +529,6 @@ const EnhancedExecutiveDashboard = () => {
           </div>
         )}
       </div>
-    </div>
-  );
-};
-
-export default EnhancedExecutiveDashboard;
       
       {/* Filters */}
       <div className="bg-white rounded-lg shadow-md p-4 mb-6">
@@ -636,7 +631,7 @@ export default EnhancedExecutiveDashboard;
                           }}
                         >
                           {bookmarkedDocs.includes(doc['File Name']) ? 
-                            <BookmarkCheck size={16} className="text-yellow-500" /> : 
+                            <BookMarked size={16} className="text-yellow-500" /> : 
                             <Bookmark size={16} />
                           }
                         </button>
@@ -681,7 +676,7 @@ export default EnhancedExecutiveDashboard;
                       onClick={() => toggleBookmark(activeDocument['File Name'])}
                     >
                       {bookmarkedDocs.includes(activeDocument['File Name']) ? 
-                        <BookmarkCheck size={20} className="text-yellow-500" /> : 
+                        <BookMarked size={20} className="text-yellow-500" /> : 
                         <Bookmark size={20} />
                       }
                     </button>
@@ -788,3 +783,51 @@ export default EnhancedExecutiveDashboard;
                           <p className="text-gray-700">{annotation.text}</p>
                         </div>
                       ))
+                    ) : (
+                      <p className="text-gray-500 text-center py-2">No annotations yet</p>
+                    )}
+                  </div>
+                  
+                  {/* Add annotation form */}
+                  <div className="flex space-x-2">
+                    <input
+                      type="text"
+                      id="annotationInput"
+                      className="flex-1 p-2 border border-gray-300 rounded-md text-sm"
+                      placeholder="Add an annotation..."
+                      onKeyDown={(e) => {
+                        if (e.key === 'Enter' && e.target.value.trim()) {
+                          saveAnnotation(activeDocument['File Name'], e.target.value.trim());
+                          e.target.value = '';
+                        }
+                      }}
+                    />
+                    <button
+                      className="px-3 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 text-sm"
+                      onClick={() => {
+                        const input = document.getElementById('annotationInput');
+                        if (input && input.value.trim()) {
+                          saveAnnotation(activeDocument['File Name'], input.value.trim());
+                          input.value = '';
+                        }
+                      }}
+                    >
+                      Add
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ) : (
+            <div className="bg-white rounded-lg shadow-md p-8 text-center text-gray-500">
+              <FileText size={48} className="mx-auto mb-4 text-gray-300" />
+              <p className="text-lg">Select a document to view details</p>
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default EnhancedExecutiveDashboard;
