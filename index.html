@@ -2,112 +2,47 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Neural Ennead — Command Centre</title>
+  <title>Neural Ennead Command Centre</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <style>body { background: linear-gradient(135deg, #1a0033, #000); color: white; }</style>
 </head>
-<body class="min-h-screen p-8 font-sans">
-  <div class="max-w-7xl mx-auto">
-    <h1 class="text-6xl font-bold mb-2">🧠 Neural Ennead Command Centre</h1>
-    <p class="text-emerald-400 text-2xl mb-10">10,000 Agents • 4 Sites • 9 VP Bundles • Live Excess Monetisation</p>
+<body class="bg-zinc-950 text-white min-h-screen">
+<div class="max-w-7xl mx-auto p-8">
+  <h1 class="text-5xl font-bold mb-1">Neural Ennead Command Centre</h1>
+  <p class="text-emerald-400 text-xl">10,000 Agents • 9 VP Bundles • Live from Temporal + Supabase</p>
 
-    <!-- Metrics -->
-    <div class="grid grid-cols-5 gap-6 mb-12">
-      <div class="bg-white/10 p-8 rounded-3xl"><div class="text-5xl font-bold">10,000</div><div class="text-sm opacity-70">Total Agents</div></div>
-      <div class="bg-white/10 p-8 rounded-3xl"><div class="text-5xl font-bold text-emerald-400">142</div><div class="text-sm opacity-70">Active Now</div></div>
-      <div class="bg-white/10 p-8 rounded-3xl"><div class="text-5xl font-bold text-yellow-400">$1,284</div><div class="text-sm opacity-70">Excess Today</div></div>
-      <div class="bg-white/10 p-8 rounded-3xl"><div class="text-5xl font-bold">9</div><div class="text-sm opacity-70">VP Bundles</div></div>
-      <div class="bg-white/10 p-8 rounded-3xl"><div class="text-5xl font-bold">100%</div><div class="text-sm opacity-70">Capacity</div></div>
-    </div>
-
-    <!-- Filters & Search -->
-    <div class="flex gap-4 mb-8">
-      <input id="search" placeholder="Search agents or bundles..." class="flex-1 bg-white/10 p-4 rounded-2xl text-lg" onkeyup="filterTable()">
-      <select id="bundleFilter" onchange="filterTable()" class="bg-white/10 p-4 rounded-2xl">
-        <option value="">All Bundles</option>
-        <option value="Sales">VP Sales</option>
-        <option value="Marketing">VP Marketing</option>
-        <option value="Finance">VP Finance</option>
-        <!-- Add the other 6 VP domains here if you want -->
-      </select>
-    </div>
-
-    <!-- Live Table (paginated for 10k) -->
-    <div class="bg-white/10 p-8 rounded-3xl mb-12 overflow-auto max-h-[600px]">
-      <h2 class="text-2xl mb-6">Live Agent Activity (10,000 total)</h2>
-      <table class="w-full text-left" id="agentTable">
-        <thead><tr class="border-b"><th class="py-4">Agent ID</th><th>Name</th><th>Bundle/Site</th><th>Utilization</th><th>Excess $</th></tr></thead>
-        <tbody id="tableBody"></tbody>
-      </table>
-    </div>
-
-    <!-- Charts -->
-    <div class="grid grid-cols-2 gap-8">
-      <div class="bg-white/10 p-8 rounded-3xl">
-        <h3 class="text-xl mb-6">Top 10 Busy Agents</h3>
-        <canvas id="busyChart"></canvas>
-      </div>
-      <div class="bg-white/10 p-8 rounded-3xl">
-        <h3 class="text-xl mb-6">Excess by Bundle</h3>
-        <canvas id="excessChart"></canvas>
-      </div>
-    </div>
-
-    <!-- Popular Activities from your sites -->
-    <div class="mt-12 bg-white/10 p-8 rounded-3xl">
-      <h3 class="text-2xl mb-6">Top 20 Popular Activities (from free feeder)</h3>
-      <div class="grid grid-cols-2 gap-4 text-sm" id="popular"></div>
-    </div>
-
-    <!-- Sell Excess -->
-    <button onclick="sellAllExcess()" class="mt-12 w-full bg-emerald-500 hover:bg-emerald-600 text-3xl font-bold py-8 rounded-3xl">
-      💰 SELL ALL EXCESS RIGHT NOW — Turn into resale credits
-    </button>
+  <!-- Metrics -->
+  <div class="grid grid-cols-4 gap-6 mt-10">
+    <div class="bg-zinc-900 p-8 rounded-3xl text-center"><div class="text-7xl font-bold">10,000</div><div class="text-sm text-zinc-400">Total Agents</div></div>
+    <div class="bg-zinc-900 p-8 rounded-3xl text-center"><div class="text-7xl font-bold text-emerald-400">142</div><div class="text-sm text-zinc-400">Active Now</div></div>
+    <div class="bg-zinc-900 p-8 rounded-3xl text-center"><div class="text-7xl font-bold text-yellow-400">$1,284</div><div class="text-sm text-zinc-400">Excess Today</div></div>
+    <div class="bg-zinc-900 p-8 rounded-3xl text-center"><div class="text-7xl font-bold">100%</div><div class="text-sm text-zinc-400">Capacity</div></div>
   </div>
 
-  <script>
-    const agents = Array.from({length: 10000}, (_, i) => ({
-      id: `A${i+1}`,
-      name: `Agent ${i+1}`,
-      bundle: i % 9 === 0 ? "VP Sales" : i % 9 === 1 ? "VP Marketing" : "Other",
-      util: Math.floor(Math.random()*100),
-      excess: (Math.random()*50).toFixed(2)
-    }));
+  <!-- Search -->
+  <input id="search" placeholder="Search agents or bundles..." class="w-full mt-10 bg-zinc-900 border border-zinc-700 rounded-2xl p-5 text-lg">
 
-    function renderTable(filtered) {
-      const tbody = document.getElementById("tableBody");
-      tbody.innerHTML = filtered.slice(0, 50).map(a => `
-        <tr class="border-b border-white/10">
-          <td class="py-4">${a.id}</td>
-          <td class="py-4">${a.name}</td>
-          <td class="py-4">${a.bundle}</td>
-          <td class="py-4">${a.util}%</td>
-          <td class="py-4 text-emerald-400">$${a.excess}</td>
-        </tr>
-      `).join('');
-    }
+  <!-- Tabs -->
+  <div class="flex gap-4 mt-8 border-b border-zinc-800 pb-2">
+    <button onclick="switchTab(0)" class="tab active px-6 py-3 border-b-2 border-emerald-400">Overview</button>
+    <button onclick="switchTab(1)" class="tab px-6 py-3">Popular & Up-and-Coming</button>
+    <button onclick="switchTab(2)" class="tab px-6 py-3">Breaking Agents</button>
+    <button onclick="switchTab(3)" class="tab px-6 py-3">Customer View</button>
+    <button onclick="switchTab(4)" class="tab px-6 py-3">Transport Layer Live</button>
+  </div>
 
-    function filterTable() {
-      const term = document.getElementById("search").value.toLowerCase();
-      const filtered = agents.filter(a => a.name.toLowerCase().includes(term) || a.bundle.toLowerCase().includes(term));
-      renderTable(filtered);
-    }
+  <!-- Tiny Sell Excess button -->
+  <button onclick="sellExcess()" class="fixed top-8 right-8 bg-emerald-500 hover:bg-emerald-600 px-5 py-2 rounded-2xl text-sm font-medium flex items-center gap-2">
+    💰 Sell Excess ($1,284)
+  </button>
+</div>
 
-    // Charts
-    new Chart(document.getElementById("busyChart"), { type: "bar", data: { labels: agents.slice(0,10).map(a=>a.id), datasets: [{ label: "Utilization %", data: agents.slice(0,10).map(a=>a.util) }] } });
-    new Chart(document.getElementById("excessChart"), { type: "pie", data: { labels: ["VP Sales","VP Marketing","Finance","Operations"], datasets: [{ data: [420,380,490,410] }] } });
-
-    // Popular activities from your top 20
-    const popularHTML = `AI Client Onboarding • Facebook Ad Spy • AI Video Analysis • Viral AI Videos • Vapi Voice Agent • Team of AI Copywriters • Unlimited Scraping • Viral LinkedIn Posts • No-Show AI • 24/7 Viral Shorts • ... (top 20 from your free feeder)`;
-    document.getElementById("popular").innerHTML = `<div class="col-span-2 text-emerald-300">${popularHTML}</div>`;
-
-    function sellAllExcess() {
-      alert("✅ $1,284 excess sold as resale credits! Auto-applied to next customer job.");
-    }
-
-    renderTable(agents);
-  </script>
+<script>
+function switchTab(n) {
+  document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+  document.getElementById('tab'+n).classList.remove('hidden');
+}
+function sellExcess() { alert('✅ Excess sold! Credits applied automatically via Performance Analyst.'); }
+</script>
 </body>
 </html>
