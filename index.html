@@ -12,19 +12,11 @@
     <h1 class="text-5xl font-bold mb-2">🧠 Neural Ennead Live Command Centre</h1>
     <p class="text-emerald-400 text-xl mb-8">727 Agents • 4 Sites • Real-time Excess Monetisation</p>
 
-    <div class="grid grid-cols-4 gap-6 mb-10">
-      <div class="bg-white/10 p-6 rounded-2xl"><div class="text-4xl font-bold">727</div><div class="text-sm text-gray-400">Total Agents</div></div>
-      <div class="bg-white/10 p-6 rounded-2xl"><div class="text-4xl font-bold text-emerald-400">6</div><div class="text-sm text-gray-400">Active Swarms</div></div>
-      <div class="bg-white/10 p-6 rounded-2xl"><div class="text-4xl font-bold text-yellow-400">$214.80</div><div class="text-sm text-gray-400">Excess Harvested Today</div></div>
-      <div class="bg-white/10 p-6 rounded-2xl"><div class="text-4xl font-bold">100%</div><div class="text-sm text-gray-400">Capacity Available</div></div>
-    </div>
+    <div class="grid grid-cols-4 gap-6 mb-10" id="metrics"></div>
 
     <div class="bg-white/10 p-8 rounded-3xl mb-8">
       <h2 class="text-2xl mb-6">Live Agent Activity</h2>
-      <table class="w-full text-left">
-        <thead><tr class="text-gray-400"><th class="pb-4">Agent ID</th><th class="pb-4">Name</th><th class="pb-4">Role</th><th class="pb-4">Site</th><th class="pb-4">Utilization</th><th class="pb-4">Excess $</th></tr></thead>
-        <tbody id="table"></tbody>
-      </table>
+      <table class="w-full text-left" id="table"></table>
     </div>
 
     <button onclick="sellExcess()" class="bg-emerald-500 hover:bg-emerald-600 text-black font-bold text-2xl px-12 py-6 rounded-3xl w-full">
@@ -33,24 +25,26 @@
   </div>
 
   <script>
-    const agents = [
-      {id:"agent.campaign_conductor.v1", name:"Campaign Conductor", role:"Orchestration", site:"holo-org.com", util:92, excess:41.60},
-      {id:"agent.lead_copysmith.v1", name:"Lead Copysmith", role:"Copywriting", site:"augmentedhumanity.coach", util:67, excess:23.80},
-      {id:"agent.creative_producer.v1", name:"Creative Producer", role:"Video/Content", site:"workfamilyai.org", util:84, excess:37.20}
-    ];
-    document.getElementById("table").innerHTML = agents.map(a => `
-      <tr class="border-t border-white/10">
-        <td class="py-4">${a.id}</td>
-        <td class="py-4">${a.name}</td>
-        <td class="py-4">${a.role}</td>
-        <td class="py-4">${a.site}</td>
-        <td class="py-4">${a.util}%</td>
-        <td class="py-4 text-emerald-400">$${a.excess}</td>
-      </tr>
-    `).join('');
+    fetch('data.json').then(r => r.json()).then(data => {
+      document.getElementById("metrics").innerHTML = `
+        <div class="bg-white/10 p-6 rounded-2xl"><div class="text-4xl font-bold">${data.total_agents}</div><div class="text-sm text-gray-400">Total Agents</div></div>
+        <div class="bg-white/10 p-6 rounded-2xl"><div class="text-4xl font-bold text-emerald-400">${data.active_agents}</div><div class="text-sm text-gray-400">Active Now</div></div>
+        <div class="bg-white/10 p-6 rounded-2xl"><div class="text-4xl font-bold text-yellow-400">$${data.excess_harvested}</div><div class="text-sm text-gray-400">Excess Harvested</div></div>
+        <div class="bg-white/10 p-6 rounded-2xl"><div class="text-4xl font-bold">100%</div><div class="text-sm text-gray-400">Capacity Available</div></div>
+      `;
+
+      let html = `<thead><tr class="text-gray-400"><th class="pb-4">Agent ID</th><th class="pb-4">Name</th><th class="pb-4">Role</th><th class="pb-4">Utilization</th><th class="pb-4">Excess $</th></tr></thead><tbody>`;
+      data.agents.forEach(a => {
+        const load = data.active_load[a.ID] || 0;
+        const excess = (load * 60 * 0.008).toFixed(2);
+        html += `<tr class="border-t border-white/10"><td class="py-4">${a.ID}</td><td class="py-4">${a.Name}</td><td class="py-4">${a.Role}</td><td class="py-4">${load} min</td><td class="py-4 text-emerald-400">$${excess}</td></tr>`;
+      });
+      html += `</tbody>`;
+      document.getElementById("table").innerHTML = html;
+    });
 
     function sellExcess() {
-      alert("✅ $214.80 excess sold! Credits auto-applied to next job.");
+      alert("✅ Excess sold! Credits auto-applied to next job.");
     }
   </script>
 </body>
